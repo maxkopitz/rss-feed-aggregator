@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	"github.com/maxkopitz/rss-feed-aggregator/internal/database"
 	"github.com/google/uuid"
+	"github.com/maxkopitz/rss-feed-aggregator/internal/database"
 )
 
 type User struct {
@@ -12,6 +12,7 @@ type User struct {
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Name      string    `json:"name"`
+	ApiKey    string    `json:"api_key"`
 }
 
 func databaseUserToUser(user database.User) User {
@@ -20,5 +21,6 @@ func databaseUserToUser(user database.User) User {
 		CreatedAt: user.CreatedAt,
 		UpdatedAt: user.UpdatedAt,
 		Name:      user.Name,
+		ApiKey:    user.ApiKey,
 	}
 }
