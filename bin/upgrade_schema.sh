@@ -1,4 +1,10 @@
 #! /bin/sh
-cd ./sql/schema
-goose postgres postgres://maxkopitz:@localhost:5432/blogator up
+
+if [ -f .env ]; then
+    source .env
+fi
+
+cd sql/schema
+goose $DATABASE_URL $DATABASE_URL up
+
 
